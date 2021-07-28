@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<title> Sticy Notes: Spring Boot </title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body style="background:#666;">
+<br>
+
+<div class="container">
+
+<div class="jumbotron jumbotron-fluid" >
+  <div class="container">
+    <h1 class="display-4"> Sticy Notes: Spring Boot</h1>
+    <p class="lead">
+    
+    
+<div class="container">
+
+<a th:href="@{/addStickyNote}"> <img src="../static/images/add_button.png" width="50" th:src="@{images/add_button.png}"/> </a>
+
+<!--
+<table border=1  class="table table-striped">
+
+<tr> <th> Id</th><th> title </th> <th> Message</th> <th> update</th><th>Delete</th></tr>
+
+<tr th:each="note : ${ListOfNotes}">
+					<td th:text="${note.id}"></td>
+					<td th:text="${note.title}"></td>
+					<td th:text="${note.message}"></td>
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${note.id})}"> Update</a></td>
+					<td> <a th:href="@{/deleteNote/{id}(id=${note.id})}"> Delete</a></td>
+
+				</tr>
+
+</table>
+-->		
+
+
+
+<div th:each="note : ${ListOfNotes}" class="panel panel-danger" style="display: inline-block;min-height:100px;min-width:200px;max-width:400px;word-wrap: break-word;" >
+
+<a th:href="@{/showFormForUpdate/{id}(id=${note.id})}"> <button  type="button" class="close" style="margin-right:10px;"  aria-hidden="true">&#9998;</button></a>
+
+<a th:href="@{/deleteNote/{id}(id=${note.id})}"> <button  type="button" class="close" style="margin-right:10px;"  aria-hidden="true">&times;</button>
+</a>
+      <div class="panel-heading" th:text="${note.title}" > 
+      </div>
+      <div class="panel-body "   th:text="${note.message}" >Panel Content</div>
+    </div>
+    		
+</div>
+
+    </p>
+  </div>
+</div>
+
+
+</div>
+</body>
+
+
+</html>

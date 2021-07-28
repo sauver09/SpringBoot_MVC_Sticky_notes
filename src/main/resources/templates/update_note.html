@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title> Sticy Notes: Spring Boot </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body style="background:#666;">
+	<br>
+
+
+
+
+
+
+
+
+	<div class="container">
+
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4"> Sticy Notes: Spring Boot</h1>
+				<p class="lead">
+
+
+				<div class="container">
+
+
+
+					<form action="#" th:action="@{/saveNote}" th:object="${m_note}" method="POST">
+						<input type="hidden" th:field="*{id}">
+						<div class="form-row">
+							<div class="col">
+								<input type="text" class="form-control" th:field="*{title}" placeholder="Title"
+									required>
+							</div>
+							<br>
+							<div class="col">
+								<input type="text" class="form-control" th:field="*{message}" placeholder="message"
+									required>
+								<br>
+								<button type="submit">Update Note </button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+				</p>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+</body>
+
+
+</html>
